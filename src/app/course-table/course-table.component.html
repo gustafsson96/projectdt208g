@@ -9,10 +9,12 @@
                 <th>Progression</th>
             </tr>
         </thead>
-        <tbody>
-            <!-- <td>{{}}</td> -->
-            <!-- <td>{{}}</td> -->
-            <!-- <td>{{}}</td> -->
+        <tbody *ngFor="let course of courses">
+            <td>{{ course.courseCode }}</td>
+            <td>{{ course.courseName }}</td>
+            <td>{{ course.points }}</td>
+            <td>{{ course.subject }}</td>
+            <td><a href="{{ course.syllabus }}" target="_blank">Kursplan</a></td>
         </tbody>
     </table>
 </div>

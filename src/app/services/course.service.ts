@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CoursesService {
+export class CourseService {
 
   private url: string = '/miun_courses.json'
 
