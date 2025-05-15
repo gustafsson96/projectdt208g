@@ -1,1 +1,12 @@
-<p>navbar works!</p>
+<nav>
+    <div class="hamburger-menu" (click)="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a routerLink="/home" routerLinkActive="active">Hem</a></li>
+        <li><a routerLink="/courses" routerLinkActive="active">Kurser</a></li>
+        <li><a routerLink="/schedule" routerLinkActive="active">Ramschema</a></li>
+    </ul>
+</nav>
