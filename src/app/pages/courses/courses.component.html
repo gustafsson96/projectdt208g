@@ -16,7 +16,7 @@
     }
   
     <div class="course-list" *ngIf="filteredCourses.length > 0">
-      <div class="course-card" *ngFor="let course of filteredCourses">
+      <div class="course-card" *ngFor="let course of paginatedCourses">
         <div class="course-header">
           <h3>
             {{ course.courseName }}
@@ -31,4 +31,11 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Site pagination -->
+  <div class="pagination-controls" *ngIf="filteredCourses.length > itemsPerPage">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Föregående</button>
+    <span>Sida {{ currentPage }} av {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Nästa</button>
   </div>
