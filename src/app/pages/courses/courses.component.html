@@ -6,14 +6,23 @@
   <div class="filter-bar">
     <label for="filter">Filtrera kurser:</label>
     <input type="text" id="filter" [(ngModel)]="filteredValue" (input)="applyFilter()" />
-  
+
     <select [(ngModel)]="selectedSubject" (change)="applyFilter()">
       <option value="">Alla ämnen</option>
       <option *ngFor="let subject of allSubjects" [value]="subject">{{ subject }}</option>
     </select>
-  
+
+    <label for="sort-select">Sortera efter:</label>
+    <select id="sort-select" [(ngModel)]="selectedSort" (change)="applyFilter()">
+      <option value="">Ingen sortering</option>
+      <option value="courseCode">Kurskod</option>
+      <option value="courseName">Kursnamn</option>
+      <option value="points">Poäng</option>
+      <option value="subject">Ämne</option>
+    </select>
+
   </div>
-  
+
   <p>{{ filteredCourses.length }} kurser hittades.</p>
 
   @if (filteredCourses.length === 0) {
@@ -35,8 +44,7 @@
         <div class="btn-message-container">
           <button class="add-btn" (click)="addCourseToSchedule(course)" [disabled]="isCourseAdded(course.courseCode)">
             {{ isCourseAdded(course.courseCode) ? 'Redan tillagd' : 'Lägg till kurs' }}</button>
-          <a class="remove-course" (click)="removeCourse(course.courseCode)"
-            *ngIf="isCourseAdded(course.courseCode)">
+          <a class="remove-course" (click)="removeCourse(course.courseCode)" *ngIf="isCourseAdded(course.courseCode)">
             Ta bort
           </a>
         </div>

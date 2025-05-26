@@ -20,7 +20,7 @@ export class CoursesComponent {
   lastAddedCourseCode: string | null = null;
   lastErrorCourseCode: string | null = null;
   selectedSubject: string = '';
-  selectedSort: string = '';
+  selectedSort: 'courseCode' | 'courseName' | 'points' | 'subject' | '' = '';
   allSubjects: string[] = [];
 
   currentPage = 1;
@@ -55,6 +55,22 @@ export class CoursesComponent {
       course.courseName.toLocaleLowerCase().includes(filter) ||
       course.courseCode.toLocaleLowerCase().includes(filter)
     );
+
+    // Apply sorting
+    if (this.selectedSort) {
+      result.sort((a, b) => {
+        switch (this.selectedSort) {
+          case 'courseCode':
+          case 'courseName':
+          case 'subject':
+            return a[this.selectedSort].localeCompare(b[this.selectedSort]);
+          case 'points':
+            return a.points - b.points;
+          default:
+            return 0;
+        }
+      });
+    }
 
     this.filteredCourses = result;
     this.currentPage = 1;
