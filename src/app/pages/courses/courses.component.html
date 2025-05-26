@@ -27,7 +27,7 @@
         <p><strong>Ämne:</strong> {{ course.subject }}</p>
         <div class="course-actions">
           <a [href]="course.syllabus" target="_blank">Visa kursplan</a>
-          <button class="add-btn">Lägg till kurs</button>
+          <button class="add-btn" (click)="addCourseToSchedule(course)">Lägg till kurs</button>
         </div>
       </div>
     </div>

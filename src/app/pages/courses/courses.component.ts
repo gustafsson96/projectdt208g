@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CourseService } from '../../services/course.service';
 import { Course } from '../../models/course';
+import { ScheduleService } from '../../services/schedule.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -16,11 +17,15 @@ export class CoursesComponent {
   filteredCourses: Course[] = [];
   paginatedCourses: Course[] = [];
   filteredValue: string = "";
+  message: string = "";
 
   currentPage = 1;
   itemsPerPage = 10;
 
-  constructor(private courseService : CourseService) {}
+  constructor(
+    private courseService: CourseService,
+    private scheduleService: ScheduleService
+  ) {}
 
   ngOnInit() {
     this.courseService.getCourses().subscribe((data) => {
@@ -38,6 +43,18 @@ export class CoursesComponent {
     );
     this.currentPage = 1;
     this.updatePaginatedCourses();
+  }
+
+  addCourseToSchedule(course: Course) {
+    const success = this.scheduleService.addCourse(course);
+    if (success) {
+      this.message = "Kursen lades till i ditt ramschema."
+    } else {
+      this.message = "Denna kurs finns redan i ditt ramschema."
+    }
+
+    // Clear message after 3 seconds
+    setTimeout(() => this.message = "", 3000);
   }
 
   // Site pagination
