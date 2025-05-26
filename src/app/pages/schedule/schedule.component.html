@@ -1,1 +1,24 @@
-<p>schedule works!</p>
+<div class="schedule-container">
+    <h2>Ditt Ramschema</h2>
+
+    <!-- Message if no courses are added -->
+    <p *ngIf="savedSchedule.length === 0">Inga kurser i ditt ramschema än.</p>
+
+    <!-- List of saved courses -->
+     <div *ngIf="savedSchedule.length > 0" class="schedule-list">
+        <div class="schedule-item" *ngFor="let course of savedSchedule">
+            <div class="course-info">
+                <h3>
+                    {{ course.courseName }}
+                    <span class="course-code">({{ course.courseCode }})</span>
+                  </h3>
+                  <span class="points">{{ course.points }} hp</span>
+                </div>
+                <p><strong>Ämne:</strong> {{ course.subject }}</p>
+                <div class="schedule-actions">
+                  <a [href]="course.syllabus" target="_blank">Visa kursplan</a>
+                  <button class="remove-btn" (click)="removeCourse(course.courseCode)">Radera</button>
+                </div>
+            </div>
+        </div>
+     </div>
