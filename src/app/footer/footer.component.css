@@ -43,6 +43,13 @@ a {
         flex-direction: column;
         text-align: center;
         justify-content: center;
+    }
 
+    .footer-section p {
+        font-size: 0.9em;
+    }
+
+    .social-icons a {
+        font-size: 1.2em;
     }
 }
