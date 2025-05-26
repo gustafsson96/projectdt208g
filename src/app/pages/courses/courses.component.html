@@ -25,13 +25,13 @@
       <div class="course-actions">
         <a [href]="course.syllabus" target="_blank">Visa kursplan</a>
         <div class="btn-message-container">
-        <button class="add-btn" (click)="addCourseToSchedule(course)">Lägg till kurs</button>
-        <span *ngIf="lastAddedCourseCode === course.courseCode" class="added-message">
-          Kurs tillagd!
-        </span>
-        <span *ngIf="lastErrorCourseCode === course.courseCode" class="error-message">
-          Kursen finns redan i ditt ramschema.
-        </span></div>
+          <button class="add-btn" (click)="addCourseToSchedule(course)" [disabled]="isCourseAdded(course.courseCode)">
+            {{ isCourseAdded(course.courseCode) ? 'Redan tillagd' : 'Lägg till kurs' }}</button>
+          <a class="remove-course" (click)="removeCourse(course.courseCode)"
+            *ngIf="isCourseAdded(course.courseCode)">
+            Ta bort
+          </a>
+        </div>
       </div>
     </div>
   </div>

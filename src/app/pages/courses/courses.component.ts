@@ -48,25 +48,17 @@ export class CoursesComponent {
 
   // Add course to schedule and show success/error message
   addCourseToSchedule(course: Course) {
-    const success = this.scheduleService.addCourse(course);
-    if (success) {
-      // Success message when course is added
-      this.lastErrorCourseCode = null; // Ensure there is no error message
-      this.lastAddedCourseCode = course.courseCode;
-      // Clear message after 3 seconds
-      setTimeout(() => {
-        this.lastAddedCourseCode = null
-      }, 2000);
-    } else {
-      // Error message if course already exists
-      this.lastAddedCourseCode = null; // Ensure there is no success message
-      this.lastErrorCourseCode = course.courseCode;
+    this.scheduleService.addCourse(course);
+  }
 
-      setTimeout(() => {
-        // Clear message after 3 seconds
-        this.lastErrorCourseCode = null;
-      }, 3000);
-    }
+  isCourseAdded(courseCode: string): boolean {
+    const savedCourses = this.scheduleService.getSavedSchedule();
+    return savedCourses.some(course => course.courseCode === courseCode);
+  }
+
+  removeCourse(courseCode: string): void {
+    this.scheduleService.removeCourse(courseCode);
+    this.applyFilter(); 
   }
 
   // Site pagination
