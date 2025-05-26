@@ -28,9 +28,41 @@
   }
   
   .filter-bar input[type="text"]:focus {
-    border-color: var(--primary-color);
+    border-color: var(--hover-color);
     outline: none;
-    box-shadow: 0 0 3px var(--primary-color);
+    box-shadow: 0 0 3px var(--hover-color);
+  }
+
+  /* Dropdown styling */
+  .dropdowns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 1.5em;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dropdowns select {
+    width: 220px;
+    padding: 0.3em 0.4em;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .dropdowns select:hover {
+    border-color: var(--hover-color);
+  }
+
+  .course-number {
+    margin-left: 0.7em;
+    font-style: italic;
+    color: #6c757d;
   }
   
   .course-list {
@@ -130,23 +162,6 @@
     padding: 1.2em 1.5em;
   }
 
-  /* user feedback messages */
-  .added-message {
-    color: green;
-    margin: 0.6em 0 0 1em;
-    font-weight: bold;
-    font-size: 0.9em;
-    transition: color 0.5s ease;
-  }
-
-  .error-message {
-    color: red;
-    margin: 0.6em 0 0 1em;
-    font-weight: bold;
-    font-size: 0.9em;
-    transition: color 0.5s ease;
-  }
-
   /* Pagination styling */
   .pagination-controls {
     display: flex;
@@ -176,3 +191,17 @@
     font-weight: 500;
   }
 
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .dropdowns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .course-card {
+    border-bottom: none;
+    border-radius: 0;
+    padding: 1.2em 1.5em;
+    box-shadow: none;
+  }
+}
