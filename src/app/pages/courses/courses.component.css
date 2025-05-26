@@ -32,7 +32,7 @@
   .course-header h3 {
     margin: 0;
     font-size: 1.2em;
-    color: var(--primary-color, #FF6F61);
+    color: var(--primary-color);
   }
 
   .course-code {
@@ -55,7 +55,7 @@
   }
   
   .course-actions a {
-    color: var(--primary-color, #FF6F61);
+    color: var(--primary-color);
     text-decoration: underline;
     font-weight: 500;
   }
@@ -68,7 +68,7 @@
   .add-btn {
     margin-top: 0.8rem;
     padding: 0.5em 1em;
-    background-color: var(--primary-color, #FF6F61);
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     border-radius: 0.5em;
@@ -79,7 +79,7 @@
   }
   
   .add-btn:hover {
-    background-color: #e85c50;
+    background-color: var(--hover-color);
   }
 
   .btn-message-container {
