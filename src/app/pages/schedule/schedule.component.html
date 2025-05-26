@@ -7,22 +7,25 @@
     <!-- If there are courses saved -->
     <div *ngIf="savedSchedule.length > 0">
         <p><strong>Totalt antal poäng:</strong> {{ getTotalPoints() }} hp</p>
-        
-    <!-- Saved courses -->
-     <div *ngIf="savedSchedule.length > 0" class="schedule-list">
-        <div class="schedule-item" *ngFor="let course of savedSchedule">
-            <div class="course-info">
-                <h3>
-                    {{ course.courseName }}
-                    <span class="course-code">({{ course.courseCode }})</span>
-                  </h3>
-                  <span class="points">{{ course.points }} hp</span>
-                </div>
-                <p><strong>Ämne:</strong> {{ course.subject }}</p>
-                <div class="schedule-actions">
-                  <a [href]="course.syllabus" target="_blank">Visa kursplan</a>
-                  <button class="remove-btn" (click)="removeCourse(course.courseCode)">Radera</button>
-                </div>
-            </div>
-        </div>
-     </div>
+
+    <!-- Saved courses table -->
+    <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Kursnamn</th>
+            <th>Poäng</th>
+            <th>Ämne</th>
+            <th>Kursplan</th>
+            <th></th> <!-- For the remove button -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of savedSchedule">
+            <td>{{ course.courseName }} ({{ course.courseCode }})</td>
+            <td>{{ course.points }} hp</td>
+            <td>{{ course.subject }}</td>
+            <td><a [href]="course.syllabus" target="_blank">Visa</a></td>
+            <td><button class="remove-btn" (click)="removeCourse(course.courseCode)">Radera</button></td>
+          </tr>
+        </tbody>
+      </table>
