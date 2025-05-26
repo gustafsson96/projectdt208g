@@ -2,14 +2,19 @@
     text-align: center;
 }
 
-.schedule-table {
-    border-collapse: collapse;
+.table-wrapper {
+    overflow-y: auto;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 0.5em;
-    overflow: hidden;
     box-shadow:  0 6px 12px rgba(0, 0, 0, 0.1);
     max-width: 1000px;
+    width: 100%;
+}
+
+.schedule-table {
+    border-collapse: collapse;
+    width: 100%;
   }
   
   .schedule-table th,
@@ -70,3 +75,11 @@
     text-align: center;
   }
 
+  /* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    .table-wrapper {
+        border-radius: 0;
+        box-shadow:  none;
+        width: 100%;
+    }
+}

@@ -6,10 +6,9 @@
 
     <!-- If there are courses saved -->
     <div *ngIf="savedSchedule.length > 0">
-
-        <!-- Display total points -->
+        <!-- Display total points-->
         <p><strong>Totalt antal poäng:</strong> {{ getTotalPoints() }} hp</p>
-        
+
         <!-- Message when a course is removed -->
         <div class="message-wrapper">
             <div *ngIf="removedCourseName" class="removed-message">
@@ -17,25 +16,27 @@
             </div>
         </div>
         <!-- Saved courses table -->
-        <table class="schedule-table">
-            <thead>
-                <tr>
-                    <th>Kursnamn</th>
-                    <th>Poäng</th>
-                    <th>Ämne</th>
-                    <th>Kursplan</th>
-                    <th></th> <!-- For the remove button -->
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let course of savedSchedule">
-                    <td>{{ course.courseName }} ({{ course.courseCode }})</td>
-                    <td>{{ course.points }} hp</td>
-                    <td>{{ course.subject }}</td>
-                    <td><a [href]="course.syllabus" target="_blank">Visa</a></td>
-                    <td><button class="remove-btn" (click)="removeCourse(course.courseCode)">Radera</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Kursnamn</th>
+                        <th>Poäng</th>
+                        <th>Ämne</th>
+                        <th>Kursplan</th>
+                        <th></th> <!-- For the remove button -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let course of savedSchedule">
+                        <td>{{ course.courseName }} ({{ course.courseCode }})</td>
+                        <td>{{ course.points }} hp</td>
+                        <td>{{ course.subject }}</td>
+                        <td><a [href]="course.syllabus" target="_blank">Visa</a></td>
+                        <td><button class="remove-btn" (click)="removeCourse(course.courseCode)">Radera</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
