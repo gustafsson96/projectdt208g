@@ -14,6 +14,17 @@ body {
     font-family: var(--font-body);
 }
 
+/* Place footer at bottom */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 h1 {
   font-family: var(--font-heading);
   font-size: 2.6em;
