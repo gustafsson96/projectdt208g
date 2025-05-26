@@ -7,6 +7,8 @@
     <label for="filter">Filtrera kurser:</label>
     <input type="text" id="filter" [(ngModel)]="filteredValue" (input)="applyFilter()" />
   </div>
+  
+  <p>{{ filteredCourses.length }} kurser hittades.</p>
 
   @if (filteredCourses.length === 0) {
   <p class="no-courses">Inga kurser att visa</p>
