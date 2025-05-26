@@ -19,6 +19,9 @@ export class CoursesComponent {
   filteredValue: string = "";
   lastAddedCourseCode: string | null = null;
   lastErrorCourseCode: string | null = null;
+  selectedSubject: string = '';
+  selectedSort: string = '';
+  allSubjects: string[] = [];
 
   currentPage = 1;
   itemsPerPage = 10;
@@ -32,16 +35,28 @@ export class CoursesComponent {
     this.courseService.getCourses().subscribe((data) => {
       this.courses = data;
       this.filteredCourses = data;
+
+      this.allSubjects = [...new Set(data.map(course => course.subject))].sort();
       this.updatePaginatedCourses();
     });
   }
 
   applyFilter(): void {
     const filter = this.filteredValue.toLowerCase();
-    this.filteredCourses = this.courses.filter((course) =>
-      course.courseName.toLowerCase().includes(filter) ||
-      course.courseCode.toLowerCase().includes(filter)
+
+    let result = this.courses;
+
+    // Filter by subject if selected
+    if (this.selectedSubject) {
+      result = result.filter(course => course.subject === this.selectedSubject);
+    }
+
+    result = result.filter((course) =>
+      course.courseName.toLocaleLowerCase().includes(filter) ||
+      course.courseCode.toLocaleLowerCase().includes(filter)
     );
+
+    this.filteredCourses = result;
     this.currentPage = 1;
     this.updatePaginatedCourses();
   }
@@ -58,7 +73,7 @@ export class CoursesComponent {
 
   removeCourse(courseCode: string): void {
     this.scheduleService.removeCourse(courseCode);
-    this.applyFilter(); 
+    this.applyFilter();
   }
 
   // Site pagination
