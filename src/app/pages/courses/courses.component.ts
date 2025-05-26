@@ -51,6 +51,7 @@ export class CoursesComponent {
     const success = this.scheduleService.addCourse(course);
     if (success) {
       // Success message when course is added
+      this.lastErrorCourseCode = null; // Ensure there is no error message
       this.lastAddedCourseCode = course.courseCode;
       // Clear message after 3 seconds
       setTimeout(() => {
@@ -58,6 +59,7 @@ export class CoursesComponent {
       }, 2000);
     } else {
       // Error message if course already exists
+      this.lastAddedCourseCode = null; // Ensure there is no success message
       this.lastErrorCourseCode = course.courseCode;
 
       setTimeout(() => {
