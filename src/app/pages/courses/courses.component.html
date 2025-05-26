@@ -1,5 +1,7 @@
+<h1>Kurser</h1>
+
 <div class="courses-container">
-  <h2>Courses</h2>
+
 
   <div class="filter-bar">
     <label for="filter">Filtrera kurser:</label>
@@ -13,10 +15,10 @@
   <div class="course-list" *ngIf="filteredCourses.length > 0">
     <div class="course-card" *ngFor="let course of paginatedCourses">
       <div class="course-header">
-        <h3>
+        <h2>
           {{ course.courseName }}
           <span class="course-code">({{ course.courseCode }})</span>
-        </h3>
+        </h2>
         <span class="points">{{ course.points }} hp</span>
       </div>
       <p><strong>Ämne:</strong> {{ course.subject }}</p>

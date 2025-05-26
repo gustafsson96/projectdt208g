@@ -1,5 +1,4 @@
 .courses-container {
-    padding: 2em;
     max-width: 800px;
     margin: 0 auto;
   }
@@ -29,7 +28,7 @@
     margin-bottom: 0.5em;
   }
   
-  .course-header h3 {
+  .course-header h2 {
     margin: 0;
     font-size: 1.2em;
     color: var(--primary-color);
