@@ -76,11 +76,33 @@
     font-weight: 500;
     width: fit-content;
     transition: background-color 0.2s ease;
-
   }
   
   .add-btn:hover {
     background-color: #e85c50;
+  }
+
+  .btn-message-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* user feedback messages */
+  .added-message {
+    color: green;
+    margin: 0.6em 0 0 1em;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: color 0.5s ease;
+  }
+
+  .error-message {
+    color: red;
+    margin: 0.6em 0 0 1em;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: color 0.5s ease;
   }
 
   /* Pagination styling */

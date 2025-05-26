@@ -17,7 +17,8 @@ export class CoursesComponent {
   filteredCourses: Course[] = [];
   paginatedCourses: Course[] = [];
   filteredValue: string = "";
-  message: string = "";
+  lastAddedCourseCode: string | null = null;
+  lastErrorCourseCode: string | null = null;
 
   currentPage = 1;
   itemsPerPage = 10;
@@ -25,7 +26,7 @@ export class CoursesComponent {
   constructor(
     private courseService: CourseService,
     private scheduleService: ScheduleService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.courseService.getCourses().subscribe((data) => {
@@ -45,16 +46,27 @@ export class CoursesComponent {
     this.updatePaginatedCourses();
   }
 
+  // Add course to schedule and show success/error message
   addCourseToSchedule(course: Course) {
     const success = this.scheduleService.addCourse(course);
     if (success) {
-      this.message = "Kursen lades till i ditt ramschema."
+      // Success message when course is added
+      this.lastErrorCourseCode = null; // Ensure there is no error message
+      this.lastAddedCourseCode = course.courseCode;
+      // Clear message after 3 seconds
+      setTimeout(() => {
+        this.lastAddedCourseCode = null
+      }, 2000);
     } else {
-      this.message = "Denna kurs finns redan i ditt ramschema."
-    }
+      // Error message if course already exists
+      this.lastAddedCourseCode = null; // Ensure there is no success message
+      this.lastErrorCourseCode = course.courseCode;
 
-    // Clear message after 3 seconds
-    setTimeout(() => this.message = "", 3000);
+      setTimeout(() => {
+        // Clear message after 3 seconds
+        this.lastErrorCourseCode = null;
+      }, 3000);
+    }
   }
 
   // Site pagination

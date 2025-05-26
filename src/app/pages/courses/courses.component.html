@@ -1,41 +1,43 @@
 <div class="courses-container">
-    <h2>Courses</h2>
-  
-    <div class="filter-bar">
-      <label for="filter">Filtrera kurser:</label>
-      <input
-        type="text"
-        id="filter"
-        [(ngModel)]="filteredValue"
-        (input)="applyFilter()"
-      />
-    </div>
-  
-    @if (filteredCourses.length === 0) {
-      <p>Inga kurser att visa</p>
-    }
-  
-    <div class="course-list" *ngIf="filteredCourses.length > 0">
-      <div class="course-card" *ngFor="let course of paginatedCourses">
-        <div class="course-header">
-          <h3>
-            {{ course.courseName }}
-            <span class="course-code">({{ course.courseCode }})</span>
-          </h3>
-          <span class="points">{{ course.points }} hp</span>
-        </div>
-        <p><strong>Ämne:</strong> {{ course.subject }}</p>
-        <div class="course-actions">
-          <a [href]="course.syllabus" target="_blank">Visa kursplan</a>
-          <button class="add-btn" (click)="addCourseToSchedule(course)">Lägg till kurs</button>
-        </div>
+  <h2>Courses</h2>
+
+  <div class="filter-bar">
+    <label for="filter">Filtrera kurser:</label>
+    <input type="text" id="filter" [(ngModel)]="filteredValue" (input)="applyFilter()" />
+  </div>
+
+  @if (filteredCourses.length === 0) {
+  <p>Inga kurser att visa</p>
+  }
+
+  <div class="course-list" *ngIf="filteredCourses.length > 0">
+    <div class="course-card" *ngFor="let course of paginatedCourses">
+      <div class="course-header">
+        <h3>
+          {{ course.courseName }}
+          <span class="course-code">({{ course.courseCode }})</span>
+        </h3>
+        <span class="points">{{ course.points }} hp</span>
+      </div>
+      <p><strong>Ämne:</strong> {{ course.subject }}</p>
+      <div class="course-actions">
+        <a [href]="course.syllabus" target="_blank">Visa kursplan</a>
+        <div class="btn-message-container">
+        <button class="add-btn" (click)="addCourseToSchedule(course)">Lägg till kurs</button>
+        <span *ngIf="lastAddedCourseCode === course.courseCode" class="added-message">
+          Kurs tillagd!
+        </span>
+        <span *ngIf="lastErrorCourseCode === course.courseCode" class="error-message">
+          Kursen finns redan i ditt ramschema.
+        </span></div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Site pagination -->
-  <div class="pagination-controls" *ngIf="filteredCourses.length > itemsPerPage">
-    <button (click)="prevPage()" [disabled]="currentPage === 1">Föregående</button>
-    <span>Sida {{ currentPage }} av {{ totalPages }}</span>
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Nästa</button>
-  </div>
+<!-- Site pagination -->
+<div class="pagination-controls" *ngIf="filteredCourses.length > itemsPerPage">
+  <button (click)="prevPage()" [disabled]="currentPage === 1">Föregående</button>
+  <span>Sida {{ currentPage }} av {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Nästa</button>
+</div>
