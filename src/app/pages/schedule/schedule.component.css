@@ -53,18 +53,13 @@
     align-items: center;
   }
 
-  /* user feedback messages */
-  .added-message {
-    color: green;
-    margin: 0.6em 0 0 1em;
-    font-weight: bold;
-    font-size: 0.9em;
-    transition: color 0.5s ease;
+  /* User feedback styling */
+  .message-wrapper {
+    min-height: 20px;
   }
-
-  .error-message {
-    color: red;
-    margin: 0.6em 0 0 1em;
+  .removed-message {
+    color: green;
+    margin-left: 1em;
     font-weight: bold;
     font-size: 0.9em;
     transition: color 0.5s ease;

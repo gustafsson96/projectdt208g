@@ -11,8 +11,9 @@ import { ScheduleService } from '../../services/schedule.service';
 })
 export class ScheduleComponent implements OnInit {
   savedSchedule: Course[] = [];
+  removedCourseName: string | null = null;
 
-  constructor(private scheduleService: ScheduleService) {}
+  constructor(private scheduleService: ScheduleService) { }
 
   ngOnInit(): void {
     this.loadSchedule();
@@ -23,14 +24,22 @@ export class ScheduleComponent implements OnInit {
     this.savedSchedule = this.scheduleService.getSavedSchedule();
   }
 
-  // Remove course and refresh list
+  // Remove course, display message and refresh list
   removeCourse(courseCode: string): void {
-    this.scheduleService.removeCourse(courseCode);
-    this.loadSchedule();
+    const removedCourse = this.savedSchedule.find(c => c.courseCode === courseCode);
+    if (removedCourse) {
+      this.scheduleService.removeCourse(courseCode);
+      this.loadSchedule();
+      this.removedCourseName = removedCourse.courseName;
+  
+      setTimeout(() => {
+        this.removedCourseName = null;
+      }, 4000);
+    }
   }
 
-  // Calculate total points
-  getTotalPoints(): number {
-    return this.savedSchedule.reduce((total, course) => total + course.points, 0);
+    // Calculate total points
+    getTotalPoints(): number {
+      return this.savedSchedule.reduce((total, course) => total + course.points, 0);
+    }
   }
-}
