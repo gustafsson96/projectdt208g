@@ -1,40 +1,41 @@
 <h1>Ramschema</h1>
 
 <div class="schedule-container">
-    <div class="above-table-section">
-        <!-- If no courses are saved -->
-        <p *ngIf="savedSchedule.length === 0">Det finns inga kurser i ditt ramschema än.</p>
+    <!-- If no courses are saved -->
+    <p *ngIf="savedSchedule.length === 0">Det finns inga kurser i ditt ramschema än.</p>
 
-        <!-- If there are courses saved -->
-        <div *ngIf="savedSchedule.length > 0">
-            <p><strong>Totalt antal poäng:</strong> {{ getTotalPoints() }} hp</p>
+    <!-- If there are courses saved -->
+    <div *ngIf="savedSchedule.length > 0">
 
-            <!-- Message when a course is removed -->
-            <div class="message-wrapper">
-                <div *ngIf="removedCourseName" class="removed-message">
-                    Kursen "{{ removedCourseName }}" togs bort från ramschemat.
-                </div>
+        <!-- Display total points -->
+        <p><strong>Totalt antal poäng:</strong> {{ getTotalPoints() }} hp</p>
+        
+        <!-- Message when a course is removed -->
+        <div class="message-wrapper">
+            <div *ngIf="removedCourseName" class="removed-message">
+                Kursen "{{ removedCourseName }}" togs bort från ramschemat.
             </div>
         </div>
+        <!-- Saved courses table -->
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Kursnamn</th>
+                    <th>Poäng</th>
+                    <th>Ämne</th>
+                    <th>Kursplan</th>
+                    <th></th> <!-- For the remove button -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let course of savedSchedule">
+                    <td>{{ course.courseName }} ({{ course.courseCode }})</td>
+                    <td>{{ course.points }} hp</td>
+                    <td>{{ course.subject }}</td>
+                    <td><a [href]="course.syllabus" target="_blank">Visa</a></td>
+                    <td><button class="remove-btn" (click)="removeCourse(course.courseCode)">Radera</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <!-- Saved courses table -->
-    <table class="schedule-table">
-        <thead>
-            <tr>
-                <th>Kursnamn</th>
-                <th>Poäng</th>
-                <th>Ämne</th>
-                <th>Kursplan</th>
-                <th></th> <!-- For the remove button -->
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let course of savedSchedule">
-                <td>{{ course.courseName }} ({{ course.courseCode }})</td>
-                <td>{{ course.points }} hp</td>
-                <td>{{ course.subject }}</td>
-                <td><a [href]="course.syllabus" target="_blank">Visa</a></td>
-                <td><button class="remove-btn" (click)="removeCourse(course.courseCode)">Radera</button></td>
-            </tr>
-        </tbody>
-    </table>
+</div>

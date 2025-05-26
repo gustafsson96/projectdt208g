@@ -1,6 +1,5 @@
-.above-table-section {
+.schedule-container p {
     text-align: center;
-    font-size: 1.2em;
 }
 
 .schedule-table {
@@ -60,7 +59,7 @@
 
   /* User feedback styling */
   .message-wrapper {
-    min-height: 20px;
+    min-height: 25px;
   }
   .removed-message {
     color: green;
@@ -68,5 +67,6 @@
     font-weight: bold;
     font-size: 0.9em;
     transition: color 0.5s ease;
+    text-align: center;
   }
 
