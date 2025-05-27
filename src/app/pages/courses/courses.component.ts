@@ -77,7 +77,7 @@ export class CoursesComponent {
     this.updatePaginatedCourses();
   }
 
-  // Add course to schedule and show success/error message
+  // Add course to schedule
   addCourseToSchedule(course: Course) {
     this.scheduleService.addCourse(course);
   }
