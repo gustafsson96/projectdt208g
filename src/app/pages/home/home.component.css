@@ -61,6 +61,12 @@
   .cta-btn:hover {
     background-color: var(--hover-color);
   }
+
+  .divider-img img {
+    width: 100%;
+    height: auto;
+
+  }
   
 
 /* Media query for screens smaller than 1000px */
