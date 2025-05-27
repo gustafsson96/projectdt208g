@@ -1,11 +1,12 @@
 <section class="hero-section">
     <!-- Hero image-->
     <picture>
-        <!-- Source for small screens (under 768px) -->
-        <source srcset="images/hero-image-mobile.png" media="(max-width: 767px)">
-
+        <!-- AVIF for smaller screens (under 768px) -->
+        <source srcset="images/hero-image-mobile.avif" media="(max-width: 767px)">
+        <!-- AVIF for larger screens -->
+        <source srcset="images/hero-image.avif" type="image/avif">
         <!-- Default image for larger screens -->
-        <img src="images/hero-image.png" alt="University building" width="1920" height="850">
+        <img ngSrc="images/hero-image.png" alt="University building" width="1920" height="850" priority>
     </picture>
     <!-- Hero text -->
     <div class="hero-text">
@@ -15,11 +16,16 @@
 </section>
 <section class="info-section">
     <h2>Varför Ralugna Universitet?</h2>
-    <p class="info-text">Ralugna Universitet utlovar en vacker miljö, engagerade lärare, modern teknik och en utbildning som förbereder dig
-        för framtiden. Våra program är utformade i nära samarbete med näringslivet, vilket ger dig praktisk erfarenhet och en stark start på din karriär. Börja ditt nästa kapitel hos oss! </p>
+    <p class="info-text">Ralugna Universitet utlovar en vacker miljö, engagerade lärare, modern teknik och en utbildning
+        som förbereder dig
+        för framtiden. Våra program är utformade i nära samarbete med näringslivet, vilket ger dig praktisk erfarenhet
+        och en stark start på din karriär. Börja ditt nästa kapitel hos oss! </p>
 </section>
 <section class="divider-img">
-    <img src="images/divider.jpg" alt="Outside of university building" width="1920" height="550">
+    <picture>
+        <source srcset="images/divider.avif" type="image/avif">
+        <img ngSrc="images/divider.jpg" alt="Outside of university building" width="1920" height="550">
+    </picture>
 </section>
 <section class="info-section">
     <h2>Utforska Kurser</h2>
