@@ -1,62 +1,35 @@
-# Projectdt208g
+# PROJEKT - Programmering i TypeScript (DT208G)
+
+## Översikt
+Detta är ett Angular-baserat projekt som utgör en webbplats för det fiktiva lärosätet "Ralugna Universitet". Webbplatsen presenterar universitetet och låter användare utforska och spara tillgängliga kurser.
+<br><br>
+Länk till publicerad webbsida: [Ralugna Universitet](https://dt208gprojectjg.netlify.app/home)
+
+## Funktionalitet
+* **Startsida:** Hero-bild med en kort introduktionstext och knapp till kurssidan.
+* **Kurssida** där användare kan:
+    * Bläddra bland tillgängliga kurser. 
+    * Filtrera kurser efter kurskod och kursnamn via en sökbar. 
+    * Sortera på ämne via en dropdown. 
+    * Sortera på kurskod, kursnamn, poäng och ämne via en dropdown. 
+    * Lägga till kurser i ramschemat.
+    * Ta bort en redan tillagd kurs från ramschemat. 
+    * Se antal kurser för den aktuella sökningen.
+* **Ramschema** där användare kan:
+    * Se sparade kurser i en tabell (lagrat i localStorage). 
+    * Se totalt antal högskolepoäng för sparade kurser. 
+    * Ta bort kurser från ramschemat.
+* **Responsiv design** som fungerar på både mobil och desktop.  
+* **Routing** mellan sidor med hjälp av Angular Router. 
+
+## 
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
 
-## Development server
 
-To start a local development server, run:
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
-## Extra functionality
-- Site pagination for courses
+## Implementerad valfri funktionalitet
+* Startsida med bilder och information. 
+* Kurssida: Sidpaginering med navigering. 
+* Kurssida: Knapptext baserad på om en kurs är tillagd eller inte ("Lägg till kurs"/"Redan tillagd").
+* Kurssida: Möjlighet att ta bort sparade kurser redan i kurslistan. 
