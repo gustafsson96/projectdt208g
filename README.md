@@ -20,13 +20,48 @@ Länk till publicerad webbsida: [Ralugna Universitet](https://dt208gprojectjg.ne
     * Se totalt antal högskolepoäng för sparade kurser. 
     * Ta bort kurser från ramschemat.
 * **Responsiv design** som fungerar på både mobil och desktop.  
-* **Routing** mellan sidor med hjälp av Angular Router. 
 
-## 
+## Tekniker som använts
+* **Angular version 19** med separata components och services för att skapa webbplatsens innehåll och funktionalitet. 
+* **Angular Router** för smidig navigering utan sidomladdning.
+* **TypeScript:** Strikt typning för att skapa webbplatsen funktionalitet.
+* **HTML:** För grundläggande uppbyggnad och struktur.
+* **CSS:** För styling.
+* **localStorage:** För att spara kurser till ramschemat.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+## Struktur
+Projektet är organiserat enligt följande struktur i src/app:
+* pages/ - Innehåller följande sidkomponenter:
+    * home/ - Startsida.
+    * courses/ - Kursöversikt.
+    * schedule/ - Ramschema.
+* navbar/ - Navigationskomponent (tillgänglig på alla sidor). 
+* footer/ - Sidfotskomponent (tillgänglig på alla sidor). 
+* services/ - Innehåller: 
+    * CourseService som hämtar data från en lokal JSON-fil. 
+    * ScheduleService som hämtar sparade kurser från localStorage. 
+* models/ - Innehåller Interface för kurser. 
 
+Utöver detta finns en global stilmall i src/styles.css och bildresurser i public/images/. 
 
+## Installation
+Följ stegen nedan för att installera och köra projektet lokalt: 
+1. Klona projektet: git clone https://github.com/gustafsson96/projectdt208g.git
+2. Navigera till projektmappen: cd ralugna-universitet
+3. Installera paket: npm install
+4. Starta utvecklingsservern: ng serve
+
+## Publicering 
+Webbplatsen har publicerats via [Netlify](https://www.netlify.com) med hjälp av följande steg: 
+1. Logga in/skapa användare
+2. Klicka på "Add new project" och välj "Import an existing project". 
+3. Koppla till GitHub och välj projektets GitHub-repository.
+4. Säkerställ att följande fält är ifyllda: 
+    * Projektnamn (valfritt)
+    * Branch to deploy: main
+    * Build command: ng build
+    * Publish directory: dist/project208g/browser
+5. Klicka "Deploy". 
 
 ## Implementerad valfri funktionalitet
 * Startsida med bilder och information. 
