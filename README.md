@@ -3,7 +3,7 @@
 ## Översikt
 Detta är ett Angular-baserat projekt som utgör en webbplats för det fiktiva lärosätet "Ralugna Universitet". Webbplatsen presenterar universitetet och låter användare utforska och spara tillgängliga kurser.
 <br><br>
-Länk till publicerad webbplats: [Ralugna Universitet](https://dt208gprojectjg.netlify.app/home)
+Länk till publicerad webbplats: [Ralugna Universitet](https://ralugnauniversitet.netlify.app)
 
 ## Funktionalitet
 * **Startsida** med en hero-bild, en kort introduktionstext och en knapp till kurssidan.
