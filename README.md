@@ -64,6 +64,8 @@ Webbplatsen har publicerats via [Netlify](https://www.netlify.com) med hjälp av
 5. Klicka "Deploy". 
 
 ## Implementerad valfri funktionalitet
+Utöver grundkraven för projektet har jag implementerat följande funktionalitet: 
+
 * Startsida med bilder och information. 
 * Kurssida: Sidpaginering med navigering. 
 * Kurssida: Knapptext baserad på om en kurs är tillagd eller inte ("Lägg till kurs"/"Redan tillagd").
