@@ -60,7 +60,7 @@ Webbplatsen har publicerats via [Netlify](https://www.netlify.com) med hjälp av
     * Projektnamn (valfritt)
     * Branch to deploy: main
     * Build command: ng build
-    * Publish directory: dist/project208g/browser
+    * Publish directory: dist/projectdt208g/browser
 5. Klicka "Deploy". 
 
 ## Implementerad valfri funktionalitet
