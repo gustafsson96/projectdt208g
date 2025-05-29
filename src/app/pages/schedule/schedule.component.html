@@ -3,14 +3,16 @@
 <div class="schedule-container">
     <!-- If no courses are saved -->
     <p *ngIf="savedSchedule.length === 0">Det finns inga kurser i ditt ramschema än.</p>
-
+    <!-- Message if schedule is cleared -->
+    <div *ngIf="allCoursesCleared" class="removed-message">
+        Ramschemat rensat.
+    </div>
     <!-- If there are courses saved -->
     <div *ngIf="savedSchedule.length > 0">
         <!-- Display total points-->
         <p><strong>Totalt antal poäng:</strong> {{ getTotalPoints() }} hp</p>
-
         <!-- Message when a course is removed -->
-        <div class="message-wrapper">
+        <div class="removed-message-wrapper">
             <div *ngIf="removedCourseName" class="removed-message">
                 Kursen "{{ removedCourseName }}" togs bort från ramschemat.
             </div>
@@ -37,6 +39,9 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <!-- Button clear the schedule -->
+        <div class="clear-btn-container"><button class="clear-btn" (click)="clearAllCourses()">Rensa ramschema</button>
         </div>
     </div>
 </div>

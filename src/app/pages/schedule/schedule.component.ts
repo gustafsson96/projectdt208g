@@ -12,6 +12,7 @@ import { ScheduleService } from '../../services/schedule.service';
 export class ScheduleComponent implements OnInit {
   savedSchedule: Course[] = [];
   removedCourseName: string | null = null;
+  allCoursesCleared: boolean = false;
 
   constructor(private scheduleService: ScheduleService) { }
 
@@ -41,5 +42,16 @@ export class ScheduleComponent implements OnInit {
     // Calculate total points
     getTotalPoints(): number {
       return this.savedSchedule.reduce((total, course) => total + course.points, 0);
+    }
+
+    // Clear all courses
+    clearAllCourses(): void {
+      this.scheduleService.clearSchedule();
+      this.loadSchedule();
+      this.allCoursesCleared = true;
+
+      setTimeout(() => {
+        this.allCoursesCleared = false;
+      }, 4000);
     }
   }

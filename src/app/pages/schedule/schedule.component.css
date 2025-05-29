@@ -41,7 +41,7 @@
     border-bottom: none;
   }
   
-  .remove-btn {
+button {
     padding: 0.5em 1em;
     background-color: var(--primary-color);
     color: #fff;
@@ -52,8 +52,14 @@
     transition: background-color 0.2s ease;
   }
   
-  .remove-btn:hover {
+  button:hover {
     background-color: var(--hover-color);
+  }
+
+  .clear-btn-container {
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
   }
 
   .btn-message-container {
@@ -63,9 +69,10 @@
   }
 
   /* User feedback styling */
-  .message-wrapper {
+  .removed-message-wrapper {
     min-height: 25px;
   }
+
   .removed-message {
     color: green;
     margin-left: 1em;
