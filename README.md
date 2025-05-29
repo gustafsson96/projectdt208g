@@ -70,3 +70,4 @@ Utöver grundkraven för projektet har jag implementerat följande funktionalite
 * Kurssida: Sidpaginering med navigering. 
 * Kurssida: Knapptext baserad på om en kurs är tillagd eller inte ("Lägg till kurs"/"Redan tillagd").
 * Kurssida: Möjlighet att ta bort sparade kurser redan i kurslistan. 
+* Ramschema: Möjlighet att rensa hela kursschemat via en knapp. 
