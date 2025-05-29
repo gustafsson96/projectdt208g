@@ -1,15 +1,18 @@
+<!-- Navigation bar -->
 <nav>
     <div class="nav-top">
         <a routerLink="/home">
             <img src="images/logotyp.svg" alt="logotype" width="200" height="50">
         </a>
-        <div class="hamburger-menu" (click)="toggleMenu()">
+        <!-- Hamburger menu -->
+        <div class="hamburger-menu" [class.active]="isMenuOpen" (click)="toggleMenu()">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
     </div>
-    <ul class="nav-links">
+    <!-- Menu items -->
+    <ul class="nav-links" [class.active]="isMenuOpen">
         <li><a routerLink="/home" routerLinkActive="active">Hem</a></li>
         <li><a routerLink="/courses" routerLinkActive="active">Kurser</a></li>
         <li><a routerLink="/schedule" routerLinkActive="active">Ramschema</a></li>

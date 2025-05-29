@@ -26,10 +26,11 @@
   <!-- Number of courses -->
   <p class="course-number" *ngIf="filteredCourses.length > 0">{{ filteredCourses.length }} kurser hittades.</p>
 
+  <!-- Message if there are no courses -->
   @if (filteredCourses.length === 0) {
   <p class="no-courses">Inga kurser att visa.</p>
   }
-
+  <!-- Display courses-->
   <div class="course-list" *ngIf="filteredCourses.length > 0">
     <div class="course-card" *ngFor="let course of paginatedCourses">
       <div class="course-header">

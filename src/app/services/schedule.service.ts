@@ -24,6 +24,7 @@ export class ScheduleService {
 
     // If course does not already exists, push to schedule
     currentSchedule.push(course);
+    
     // Save to local storage
     localStorage.setItem(this.storageKey, JSON.stringify(currentSchedule));
     return true;

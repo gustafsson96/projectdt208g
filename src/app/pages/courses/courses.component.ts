@@ -23,7 +23,10 @@ export class CoursesComponent {
   selectedSort: 'courseCode' | 'courseName' | 'points' | 'subject' | '' = '';
   allSubjects: string[] = [];
 
+  // Current page number for pagination
   currentPage = 1;
+
+  // Number of items to show
   itemsPerPage = 10;
 
   constructor(
@@ -32,15 +35,20 @@ export class CoursesComponent {
   ) { }
 
   ngOnInit() {
+    // Fetch all courses
     this.courseService.getCourses().subscribe((data) => {
       this.courses = data;
       this.filteredCourses = data;
 
+      // Get courses for subject filtering and sort alphabetically
       this.allSubjects = [...new Set(data.map(course => course.subject))].sort();
+      
+      // Initialize paginated courses for page 1
       this.updatePaginatedCourses();
     });
   }
 
+  // Apply filtering and sorting
   applyFilter(): void {
     const filter = this.filteredValue.toLowerCase();
 
@@ -51,6 +59,7 @@ export class CoursesComponent {
       result = result.filter(course => course.subject === this.selectedSubject);
     }
 
+    // Search bar filtering
     result = result.filter((course) =>
       course.courseName.toLocaleLowerCase().includes(filter) ||
       course.courseCode.toLocaleLowerCase().includes(filter)
@@ -77,16 +86,18 @@ export class CoursesComponent {
     this.updatePaginatedCourses();
   }
 
-  // Add course to schedule
+  // Add course to schedule via ScheduleService
   addCourseToSchedule(course: Course) {
     this.scheduleService.addCourse(course);
   }
 
+  // Check if course is already added
   isCourseAdded(courseCode: string): boolean {
     const savedCourses = this.scheduleService.getSavedSchedule();
     return savedCourses.some(course => course.courseCode === courseCode);
   }
 
+  // Remove a course
   removeCourse(courseCode: string): void {
     this.scheduleService.removeCourse(courseCode);
     this.applyFilter();
@@ -99,6 +110,7 @@ export class CoursesComponent {
     this.paginatedCourses = this.filteredCourses.slice(start, end);
   }
 
+  // Go to next page
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
@@ -106,6 +118,7 @@ export class CoursesComponent {
     }
   }
 
+  // Go to previous page
   prevPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -113,6 +126,7 @@ export class CoursesComponent {
     }
   }
 
+  // Calculate total number of pages based on filtering 
   get totalPages(): number {
     return Math.ceil(this.filteredCourses.length / this.itemsPerPage);
   }

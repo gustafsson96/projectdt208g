@@ -1,3 +1,4 @@
+// Course interface
 export interface Course {
         courseCode: string;
         subjectCode: string;

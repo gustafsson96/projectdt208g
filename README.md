@@ -8,17 +8,19 @@ Länk till publicerad webbplats: [Ralugna Universitet](https://ralugnauniversite
 ## Funktionalitet
 * **Startsida** med en hero-bild, en kort introduktionstext och en knapp till kurssidan.
 * **Kurssida** där användare kan:
-    * Bläddra bland tillgängliga kurser. 
+    * Bläddra bland tillgängliga kurser (hämtade från en lokal JSON-fil). 
     * Filtrera kurser efter kurskod och kursnamn via en sökbar. 
     * Sortera på ämne via en dropdown. 
     * Sortera på kurskod, kursnamn, poäng och ämne via en dropdown. 
     * Lägga till kurser i ramschemat.
     * Ta bort en redan tillagd kurs från ramschemat. 
     * Se antal kurser för den aktuella sökningen.
+    * Navigera mellan sidor med kurser via sidpaginering.
 * **Ramschema** där användare kan:
     * Se sparade kurser i en tabell (lagrat i localStorage). 
     * Se totalt antal högskolepoäng för sparade kurser. 
-    * Ta bort kurser från ramschemat.
+    * Ta bort enskilda kurser från ramschemat.
+    * Rensa alla sparade kurser.
 * **Responsiv design** som fungerar på både mobil och desktop.  
 
 ## Tekniker som använts
@@ -32,15 +34,15 @@ Länk till publicerad webbplats: [Ralugna Universitet](https://ralugnauniversite
 ## Struktur
 Projektet är organiserat enligt följande struktur i src/app:
 * pages/ - Innehåller följande sidkomponenter:
-    * home/ - Startsida.
-    * courses/ - Kursöversikt.
-    * schedule/ - Ramschema.
-* navbar/ - Navigationskomponent (tillgänglig på alla sidor). 
+    * home/ - Startsida
+    * courses/ - Kursöversikt
+    * schedule/ - Ramschema
+* navbar/ - Navigationskomponent (tillgänglig på alla sidor)
 * footer/ - Sidfotskomponent (tillgänglig på alla sidor). 
 * services/ - Innehåller: 
-    * CourseService som hämtar data från en lokal JSON-fil. 
-    * ScheduleService som hämtar sparade kurser från localStorage. 
-* models/ - Innehåller Interface för kurser. 
+    * CourseService som hämtar data från en lokal JSON-fil
+    * ScheduleService som hämtar sparade kurser från localStorage
+* models/ - Innehåller Interface för kurser
 
 Utöver detta finns en global stilmall i src/styles.css och bildresurser i public/images/. 
 
@@ -54,17 +56,17 @@ Följ stegen nedan för att installera och köra projektet lokalt:
 ## Publicering 
 Webbplatsen har publicerats via [Netlify](https://www.netlify.com) med hjälp av följande steg: 
 1. Logga in/skapa användare
-2. Klicka på "Add new project" och välj "Import an existing project". 
-3. Koppla till GitHub och välj projektets GitHub-repository.
+2. Klicka på "Add new project" och välj "Import an existing project"
+3. Koppla till GitHub och välj projektets GitHub-repository
 4. Säkerställ att följande fält är ifyllda: 
     * Projektnamn (valfritt)
     * Branch to deploy: main
     * Build command: ng build
     * Publish directory: dist/projectdt208g/browser
-5. Klicka "Deploy". 
+5. Klicka "Deploy"
 
 ## Implementerad valfri funktionalitet
-Utöver grundkraven för projektet har jag implementerat följande funktionalitet: 
+För detta projekt har jag satsat på ett överbetyg. Utöver grundkraven för projektet har jag implementerat följande funktionalitet: 
 
 * Startsida med bilder och information. 
 * Kurssida: Sidpaginering med navigering. 

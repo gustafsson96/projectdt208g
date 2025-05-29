@@ -12,7 +12,7 @@ export class CourseService {
 
   constructor(private http: HttpClient) { }
 
-  // Get courses
+  // Fetch list of courses from JSON file
   getCourses() : Observable<Course[]> {
     return this.http.get<Course[]>(this.url);
   }

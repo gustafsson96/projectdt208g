@@ -1,4 +1,4 @@
-/* navbar styling */
+/* Navbar styling */
 nav {
     position: relative;
     display: flex;
@@ -16,7 +16,7 @@ nav {
   padding: 0;
 }
 
-/* navbar link styling */
+/* Navbar links */
 ul.nav-links {
     font-family: var(--font-body);
     margin: 0;
@@ -44,7 +44,7 @@ ul.nav-links li a.active {
 }
 
 
-/* hamburger icon styling */
+/* Hamburger icon */
 .hamburger-menu {
     display: none;
     flex-direction: column;
@@ -62,7 +62,7 @@ ul.nav-links li a.active {
     transition: all 0.3s ease;
 }
 
-/* media query for screens smaller than 768px */
+/* Media query for screens smaller than 768px */
 @media (max-width: 768px) {
     nav {
       flex-direction: column;
@@ -75,7 +75,8 @@ ul.nav-links li a.active {
       align-items: center;
       width: 100%;
     }
-  
+
+    /* Show hamburger menu */ 
     .hamburger-menu {
       display: flex;
       flex-direction: column;

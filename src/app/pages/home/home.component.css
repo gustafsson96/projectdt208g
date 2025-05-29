@@ -1,4 +1,4 @@
-/* Startpage hero section */
+/* Hero section styling */
 .hero-section {
     position: relative;
     text-align: center;
@@ -33,6 +33,7 @@
     color: #fff;
 }
 
+/* Info section styling */
 .info-section {
     margin: 0 auto;
     padding: 3em 2em;
@@ -53,6 +54,13 @@
     text-align: left;
 }
 
+/* Divider image */
+.divider-img img {
+    width: 100%;
+    height: auto;
+}
+
+/* Course page button */
 .cta-btn {
     display: inline-block;
     font-size: 1.1em;
@@ -65,18 +73,11 @@
     text-decoration: none;
     font-weight: bold;
     transition: background 0.3s ease;
-  }
-  
-  .cta-btn:hover {
+}
+
+.cta-btn:hover {
     background-color: var(--hover-color);
-  }
-
-  .divider-img img {
-    width: 100%;
-    height: auto;
-
-  }
-  
+}
 
 /* Media query for screens smaller than 1000px */
 @media (max-width: 1000px) {
@@ -113,9 +114,8 @@
         font-size: 1.1em;
     }
 
-
-.cta-btn {
-    font-size: 1em;
-    padding: 0.3em 1.8em;
-  }
+    .cta-btn {
+        font-size: 1em;
+        padding: 0.3em 1.8em;
+    }
 }
